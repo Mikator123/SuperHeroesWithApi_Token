@@ -27,8 +27,7 @@ namespace Models.Global.Repositories
                 Id = (int)reader["Id"],
                 LastName = reader["LastName"].ToString(),
                 FirstName = reader["FirstName"].ToString(),
-                Login = reader["Login"].ToString(),
-                Password = reader["Password"].ToString()
+                Login = reader["Login"].ToString()
             }).SingleOrDefault();
         }
 
