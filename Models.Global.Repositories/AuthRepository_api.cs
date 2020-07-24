@@ -10,7 +10,7 @@ namespace Models.Global.Repositories
     class AuthRepository_api : IAuthRepository<UserGlobal>
     {
         public string BaseAddress = "https://localhost:44324/api/";
-        public UserGlobal Login(UserGlobal entity)
+        public UserGlobal Login(string login, string password)
         {
             using (HttpClient httpClient = new HttpClient())
             {
@@ -18,7 +18,7 @@ namespace Models.Global.Repositories
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
 
-                string jsonContent = JsonConvert.SerializeObject(entity);
+                string jsonContent = JsonConvert.SerializeObject(new { Login = login, Password = password });
                 HttpContent httpContent = new StringContent(jsonContent);
                 httpContent.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/json");
 

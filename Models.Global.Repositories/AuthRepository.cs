@@ -17,11 +17,11 @@ namespace Models.Global.Repositories
             _connection = new Connection(SqlClientFactory.Instance, _CostringObj);
         }
 
-        public UserGlobal Login(UserGlobal entity)
+        public UserGlobal Login(string login, string password)// A CHEQUER
         {
             Command cmd = new Command("LoginUser", true);
-            cmd.AddParameter("login", entity.Login);
-            cmd.AddParameter("password", entity.Password);
+            cmd.AddParameter("login", login);
+            cmd.AddParameter("password", password);
             return _connection.ExecuteReader(cmd, (reader) => new UserGlobal()
             {
                 Id = (int)reader["Id"],

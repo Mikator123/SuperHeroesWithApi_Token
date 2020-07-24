@@ -2,6 +2,8 @@
 using Models.Global.Entities;
 using Models.Global.Repositories;
 using System.Web.Http;
+using webAPI.Models;
+using webAPI.Models.Services;
 
 namespace webAPI.Controllers
 {
@@ -18,9 +20,14 @@ namespace webAPI.Controllers
 
         [HttpPost]
         [Route("api/Auth/Login")]
-        public UserGlobal Login([FromBody] UserGlobal entity)
+        public UserGlobal Login([FromBody] LoginForm form)
         {
-            return _repo.Login(entity);
+            UserGlobal user = _repo.Login(form.Login, form.Password);
+            if (user != null)
+            {
+                user.Token = TokenService.Instance.EncodeToken(user);
+            }
+            return user;
         }
 
 

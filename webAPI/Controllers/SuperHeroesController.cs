@@ -7,9 +7,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using webAPI.Infrastructure;
 
 namespace webAPI.Controllers
 {
+    [AuthRequired]
     public class SuperHeroesController : ApiController
     {
         private ICRUDRepository<SuperHeroGlobal> _repo;
