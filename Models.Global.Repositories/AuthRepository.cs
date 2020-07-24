@@ -1,0 +1,51 @@
+﻿using Model.Interfaces;
+using Models.Global.Entities;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Transactions;
+using ToolBoxDB;
+
+namespace Models.Global.Repositories
+{
+    public class AuthRepository : IAuthRepository<UserGlobal>
+    {
+        public Connection _connection;
+        public ConnectionStringObj _CostringObj;
+
+        public AuthRepository()
+        {
+            _CostringObj = new ConnectionStringObj(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DBNEW;Integrated Security=True;");
+            _connection = new Connection(SqlClientFactory.Instance, _CostringObj);
+        }
+
+        public UserGlobal Login(UserGlobal entity)
+        {
+            Command cmd = new Command("LoginUser", true);
+            cmd.AddParameter("login", entity.Login);
+            cmd.AddParameter("password", entity.Password);
+            return _connection.ExecuteReader(cmd, (reader) => new UserGlobal()
+            {
+                Id = (int)reader["Id"],
+                LastName = reader["LastName"].ToString(),
+                FirstName = reader["FirstName"].ToString(),
+                Login = reader["Login"].ToString(),
+                Password = reader["Password"].ToString()
+            }).SingleOrDefault();
+        }
+
+        public void Register(UserGlobal entity)
+        {
+            Command cmd = new Command("CreateUser", true);
+            cmd.AddParameter("lastname", entity.LastName);
+            cmd.AddParameter("firstname", entity.FirstName);
+            cmd.AddParameter("login", entity.Login);
+            cmd.AddParameter("password", entity.Password);
+            _connection.ExecuteNonQuery(cmd);
+
+        }
+    }
+}

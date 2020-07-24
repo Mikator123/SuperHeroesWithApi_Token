@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\TOOLBOX\ToolBoxDB\ToolBoxDB.csproj" />
+    <ProjectReference Include="..\Model.Interfaces\Model.Interfaces.csproj" />
+    <ProjectReference Include="..\Models.Global.Entities\Models.Global.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
