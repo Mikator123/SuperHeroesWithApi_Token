@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 
 namespace Models.Global.Repositories
 {
-    class AuthRepository_api : IAuthRepository<UserGlobal>
+    public class AuthRepository_api : IAuthRepository<UserGlobal>
     {
         public string BaseAddress = "https://localhost:44324/api/";
         public UserGlobal Login(string login, string password)
