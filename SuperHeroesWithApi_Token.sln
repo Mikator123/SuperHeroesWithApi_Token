@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{39D23B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{74277FF9-7EDE-41B8-ADC5-8B60F5F16FD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.Global.Entities", "Models.Global.Entities\Models.Global.Entities.csproj", "{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,17 @@ Global
 		{7ADA5EEF-03B2-4EBA-81D1-161862DFA81A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7ADA5EEF-03B2-4EBA-81D1-161862DFA81A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7ADA5EEF-03B2-4EBA-81D1-161862DFA81A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7ADA5EEF-03B2-4EBA-81D1-161862DFA81A} = {A43E45C6-D69B-4679-BAD6-68DAE9AF3650}
+		{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529} = {39D23B0E-BED3-4B9D-A377-6E1E4A73270C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C634C3D6-9FBD-4045-AF5C-4B457FE4D3E1}
