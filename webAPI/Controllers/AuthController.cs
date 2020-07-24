@@ -1,15 +1,11 @@
 ﻿using Model.Interfaces;
 using Models.Global.Entities;
 using Models.Global.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 
 namespace webAPI.Controllers
 {
-    
+
 
     public class AuthController : ApiController
     {
