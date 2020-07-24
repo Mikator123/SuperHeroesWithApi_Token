@@ -13,9 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{39D23B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{74277FF9-7EDE-41B8-ADC5-8B60F5F16FD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.Global.Entities", "Models.Global.Entities\Models.Global.Entities.csproj", "{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models.Global.Entities", "Models.Global.Entities\Models.Global.Entities.csproj", "{3949B88C-F3CB-4ADB-B5D0-2BD8986CD529}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.Global.Repositories", "Models.Global.Repositories\Models.Global.Repositories.csproj", "{CF1875F7-9841-453D-B155-AC366B5A9A25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models.Global.Repositories", "Models.Global.Repositories\Models.Global.Repositories.csproj", "{CF1875F7-9841-453D-B155-AC366B5A9A25}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6200321C-9E97-42D5-B9DD-1A8C28ECF8D2} = {6200321C-9E97-42D5-B9DD-1A8C28ECF8D2}
 	EndProjectSection
@@ -24,7 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Global", "Global", "{C60F6B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{E73258F9-AB71-4788-928A-698468A2DF29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model.Interfaces", "Model.Interfaces\Model.Interfaces.csproj", "{5CB0945D-EFF9-450E-A90E-B1909E357C1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model.Interfaces", "Model.Interfaces\Model.Interfaces.csproj", "{5CB0945D-EFF9-450E-A90E-B1909E357C1E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolBoxDB", "..\TOOLBOX\ToolBoxDB\ToolBoxDB.csproj", "{6200321C-9E97-42D5-B9DD-1A8C28ECF8D2}"
 EndProject
@@ -34,10 +34,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webAPI", "webAPI\webAPI.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ToolBox", "ToolBox", "{C77E5271-DE56-47BD-B5F0-0E197B651B3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models.Client", "Models.Client\Models.Client.csproj", "{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models.Client", "Models.Client\Models.Client.csproj", "{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325}"
 	ProjectSection(ProjectDependencies) = postProject
 		{CF1875F7-9841-453D-B155-AC366B5A9A25} = {CF1875F7-9841-453D-B155-AC366B5A9A25}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHeroesWPF", "SuperHeroesWPF\SuperHeroesWPF.csproj", "{50F60483-22B9-49E9-8C18-0806B6AD9248}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50F60483-22B9-49E9-8C18-0806B6AD9248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50F60483-22B9-49E9-8C18-0806B6AD9248}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50F60483-22B9-49E9-8C18-0806B6AD9248}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50F60483-22B9-49E9-8C18-0806B6AD9248}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{5DEDC658-7FBD-4C7F-934D-446E058D8161} = {39D23B0E-BED3-4B9D-A377-6E1E4A73270C}
 		{5FC24E13-3FC5-42AB-8AE2-F682B72C1C5F} = {2D93C912-D4E0-48FB-93B3-352DEA4E2226}
 		{4A59EAF5-CE0D-4594-9D2C-0CBF9025B325} = {5DEDC658-7FBD-4C7F-934D-446E058D8161}
+		{50F60483-22B9-49E9-8C18-0806B6AD9248} = {74277FF9-7EDE-41B8-ADC5-8B60F5F16FD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C634C3D6-9FBD-4045-AF5C-4B457FE4D3E1}

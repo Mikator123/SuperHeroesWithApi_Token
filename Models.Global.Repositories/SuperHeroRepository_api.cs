@@ -11,14 +11,22 @@ namespace Models.Global.Repositories
 {
     public class SuperHeroRepository_api : ICRUDRepository<SuperHeroGlobal>
     {
-        public string BaseAddress = "https://localhost:44324/api/";
+        private string _baseAddress = "https://localhost:44324/api/";
+
+        private string _token;
+        public SuperHeroRepository_api(string token)
+        {
+            _token = token;
+        }
         public void Create(SuperHeroGlobal entity)
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = new Uri(_baseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
 
                 string jsonContent = JsonConvert.SerializeObject(entity);
                 HttpContent httpContent = new StringContent(jsonContent);
@@ -26,7 +34,6 @@ namespace Models.Global.Repositories
 
                 HttpResponseMessage httpResponseMessage = httpClient.PostAsync($"SuperHeroes", httpContent).Result; //donne le résult de l'enveloppe (header/body)
                 httpResponseMessage.EnsureSuccessStatusCode(); //vérifie qu'il n'y ai pas d'erreur dans la récupération
-
             }
         }
 
@@ -34,9 +41,11 @@ namespace Models.Global.Repositories
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = new Uri(_baseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
 
                 HttpResponseMessage httpResponseMessage = httpClient.GetAsync($"SuperHeroes/{id}").Result; //donne le résult de l'enveloppe (header/body)
                 httpResponseMessage.EnsureSuccessStatusCode(); //vérifie qu'il n'y ai pas d'erreur dans la récupération
@@ -48,9 +57,11 @@ namespace Models.Global.Repositories
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = new Uri(_baseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
 
                 HttpResponseMessage httpResponseMessage = httpClient.GetAsync($"SuperHeroes").Result; //donne le résult de l'enveloppe (header/body)
                 httpResponseMessage.EnsureSuccessStatusCode(); //vérifie qu'il n'y ai pas d'erreur dans la récupération
@@ -64,9 +75,11 @@ namespace Models.Global.Repositories
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = new Uri(_baseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
 
                 HttpResponseMessage httpResponseMessage = httpClient.GetAsync($"SuperHeroes/{id}").Result; //donne le résult de l'enveloppe (header/body)
                 httpResponseMessage.EnsureSuccessStatusCode(); //vérifie qu'il n'y ai pas d'erreur dans la récupération
@@ -80,9 +93,11 @@ namespace Models.Global.Repositories
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = new Uri(_baseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+
 
                 string jsonContent = JsonConvert.SerializeObject(entity);
                 HttpContent httpContent = new StringContent(jsonContent);

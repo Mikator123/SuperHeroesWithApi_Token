@@ -15,9 +15,9 @@ namespace Models.Client.Services
     {
         private ICRUDRepository<SuperHeroGlobal> _repo;
 
-        public SuperHeroService()
+        public SuperHeroService(string token)
         {
-            _repo = new SuperHeroRepository_api();
+            _repo = new SuperHeroRepository_api(token);
         }
         
         public void Create(SuperHeroClient entity)
