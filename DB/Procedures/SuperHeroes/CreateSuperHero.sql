@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[CreateSuperHero]
-	@name nvarchar(50),
+	@name varchar(50),
 	@strenght int,
 	@intelligence int,
 	@stamina int,
