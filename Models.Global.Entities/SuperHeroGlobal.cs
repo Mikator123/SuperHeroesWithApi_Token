@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Models.Global.Entities
 {
-    public class SuperHeroGlobal
+    public class SuperHeroGlobal // POCO -> doit être compatible avec un retour DB
     {
         public int Id { get; set; }
         public string Name { get; set; }

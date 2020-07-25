@@ -9,7 +9,7 @@ namespace Models.Client.Mappers
 {
     public static class Mappers
     {
-        public static UserClient ToClient(this UserGlobal user)
+        public static UserClient ToClient(this UserGlobal user) // retourne un UserClient à partir d'une méthode d'extension d'un UserGlobal -> (this UserGlobal user)
         {
             return new UserClient()
             {

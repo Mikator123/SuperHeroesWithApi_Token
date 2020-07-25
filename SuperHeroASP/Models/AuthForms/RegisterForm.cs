@@ -31,7 +31,7 @@ namespace SuperHeroASP.Models.AuthForms
         public string Password { get; set; }
 
         [DisplayName("Répetez votre mot de passe")]
-        [Compare("Password", ErrorMessage = "Le mot de passe n'est pas identique.")]
+        [Compare("Password", ErrorMessage = "Le mot de passe n'est pas identique.")] // oblige la prop à être identique au premier paramètre rentré
         public string RepeatPassword { get; set; }
     }
 }

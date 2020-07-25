@@ -18,9 +18,9 @@ namespace webAPI.Controllers
             _repo = new AuthRepository();
         }
 
-        [HttpPost]
-        [Route("api/Auth/Login")]
-        public UserGlobal Login([FromBody] LoginForm form)
+        [HttpPost] //type de la méthode qui traverse l'api (POST)
+        [Route("api/Auth/Login")] //défini la route liée a la méthode **** PS: si les méthodes sont du même type (post, put, delete, get), la route devra être différente.
+        public UserGlobal Login([FromBody] LoginForm form) // récupère un formulaire adéquat en paramètre dans lequel la sérialisation du JSON pourra être injecté
         {
             UserGlobal user = _repo.Login(form.Login, form.Password); // récupération de l'utilisateur
             if (user != null)

@@ -11,7 +11,7 @@ using webAPI.Infrastructure;
 
 namespace webAPI.Controllers
 {
-    [AuthRequired]
+    [AuthRequired]  // ce controller nécissite un TOKEN valide pour y accéder
     public class SuperHeroesController : ApiController
     {
         private ICRUDRepository<SuperHeroGlobal> _repo;

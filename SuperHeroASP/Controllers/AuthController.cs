@@ -23,25 +23,32 @@ namespace SuperHeroASP.Controllers
             _service = new AuthService();
         }
 
-        //GET
-        [AnonymousRequired]
+
+        [AnonymousRequired] // Session
         public ActionResult Register()
         {
-            return View();
+            return View(); // view de la page en elle même, dépendra du formulaire adéquat
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterForm user)
+        [HttpPost] // méthode de type POST qui va renvoyer les données d'un input type="submit" d'un "formulaire"
+        [ValidateAntiForgeryToken] // vérifie que l'utilisateur qui a validé la page est bien celui qui a envoyé les données
+        public ActionResult Register(RegisterForm user) // retour de validation de la vue avec en paramètre le type de donnée dont disposait la view 
         {
-            try
+            if (ModelState.IsValid) // vérifie que les data annotation soient bien respectées dans le formulaire. (voir le modelForm)
             {
-                _service.Register(user.ToClient());
-                return RedirectToAction("login");
+                try
+                {
+                    _service.Register(user.ToClient()); // mapper les données
+                    return RedirectToAction("login"); // redirige vers une autre action
+                }
+                catch
+                {
+                    ViewBag.Error = "Le login est déjà existant";
+                    return View();
+                }
             }
-            catch
+            else
             {
-                ViewBag.Error = "Le login est déjà existant";
                 return View();
             }
         }
@@ -59,7 +66,7 @@ namespace SuperHeroASP.Controllers
         {
             try
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     UserClient userClient = _service.Login(user.Login, user.Password);
                     if (userClient != null)
@@ -90,7 +97,7 @@ namespace SuperHeroASP.Controllers
         public ActionResult Logout()
         {
             Session.Abandon();
-            return RedirectToAction("index","Home");
+            return RedirectToAction("index", "Home");
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Web.Routing;
 
 namespace SuperHeroASP.Infrastructures.Attributes
 {
-    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)] 
     public class AuthRequiredAttribute : AuthorizeAttribute
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)

@@ -18,7 +18,7 @@ namespace SuperHeroASP.Controllers
         public SuperHeroesController()
         {
             _token = SessionManager.User.Token;
-            _service = new SuperHeroService(_token); // ????
+            _service = new SuperHeroService(_token); 
         }
         
 
@@ -63,13 +63,13 @@ namespace SuperHeroASP.Controllers
             }
         }
 
-        // GET: SuperHeroes/Edit/5
+
         public ActionResult Edit(int id)
         {
             return View(_service.GetById(id).ToUpdateForm());
         }
 
-        // POST: SuperHeroes/Edit/5
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(UpdateForm entity)
@@ -93,13 +93,13 @@ namespace SuperHeroASP.Controllers
             }
         }
 
-        // GET: SuperHeroes/Delete/5
+
         public ActionResult Delete(int id)
         {
             return View(_service.GetById(id));
         }
 
-        // POST: SuperHeroes/Delete/5
+
         [HttpPost]
         public ActionResult Delete(SuperHeroClient entity)
         {

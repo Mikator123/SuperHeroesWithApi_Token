@@ -25,10 +25,10 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
                     @if (SessionManager.User is null)
-                    {
-                        <li>@Html.ActionLink("Register", "Register", "Auth")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Auth")</li>
-                    }
+                    {@*//défini des zones d'affichages en fonction de la session*@
+                    <li>@Html.ActionLink("Register", "Register", "Auth")</li>
+                    <li>@Html.ActionLink("Login", "Login", "Auth")</li>
+                }
                     @if (!(SessionManager.User is null))
                     {
                         <li>@Html.ActionLink("Index", "Index", "SuperHeroes")</li>
