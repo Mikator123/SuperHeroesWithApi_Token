@@ -9,12 +9,17 @@ namespace Models.Global.Repositories
 {
     public class AuthRepository_api : IAuthRepository<UserGlobal>
     {
-        public string BaseAddress = "https://localhost:44324/api/";
+        private Uri _baseAddress;
+
+        public AuthRepository_api()
+        {
+            _baseAddress = new Uri("https://localhost:44324/api/");
+        }
         public UserGlobal Login(string login, string password)
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = _baseAddress; // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
 
@@ -34,7 +39,7 @@ namespace Models.Global.Repositories
         {
             using (HttpClient httpClient = new HttpClient())
             {
-                httpClient.BaseAddress = new Uri(BaseAddress); // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
+                httpClient.BaseAddress = _baseAddress; // recrupere l'adresse du Web.api -> propriété -> Web // ajouter /api/ a la fin
                 httpClient.DefaultRequestHeaders.Accept.Clear(); // clear la propriété accept du httpClient
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json")); // défini le type voulu
 

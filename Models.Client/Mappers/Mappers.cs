@@ -17,7 +17,9 @@ namespace Models.Client.Mappers
                 LastName = user.LastName,
                 FirstName = user.FirstName,
                 Login = user.Login,
-                Password = user.Password
+                Password = user.Password,
+                Token = user.Token,
+                
             };
         }
         public static UserGlobal ToGlobal(this UserClient user)
@@ -28,7 +30,9 @@ namespace Models.Client.Mappers
                 LastName = user.LastName,
                 FirstName = user.FirstName,
                 Login = user.Login,
-                Password = user.Password
+                Password = user.Password,
+                Token = user.Token
+                
             };
         }
         public static SuperHeroClient ToClient(this SuperHeroGlobal SH)

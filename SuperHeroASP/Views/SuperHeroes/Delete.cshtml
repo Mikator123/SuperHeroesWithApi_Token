@@ -1,0 +1,33 @@
+﻿@model Models.Client.Entities.SuperHeroClient
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Etes vous certain de vouloir supprimer @Model.Name ?</h3>
+<div>
+    <h4>SuperHeroClient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Revenir a l'index", "Index")
+        </div>
+    }
+</div>

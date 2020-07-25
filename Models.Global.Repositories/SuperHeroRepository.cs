@@ -68,7 +68,8 @@ namespace Models.Global.Repositories
 
         public void Update(SuperHeroGlobal entity)
         {
-            Command cmd = new Command("UpdateSuperHeroes", true);
+            Command cmd = new Command("UpdateSuperHero", true);
+            cmd.AddParameter("id", entity.Id);
             cmd.AddParameter("name", entity.Name);
             cmd.AddParameter("strenght", entity.Strenght);
             cmd.AddParameter("intelligence", entity.Intelligence);

@@ -43,7 +43,7 @@ namespace webAPI.Controllers
         }
 
 
-        [Route("api/SuperHeroes")]
+        [Route("api/SuperHeroes/{id}")]
         public void Put([FromBody] SuperHeroGlobal entity)
         {
             _repo.Update(entity);

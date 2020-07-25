@@ -1,0 +1,58 @@
+﻿@model Models.Client.Entities.SuperHeroClient
+
+@{
+    ViewBag.Title = "Details";
+}
+
+    <h2>Détails</h2>
+
+<div>
+    <h4>SuperHeroClient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Strenght)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Strenght)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Intelligence)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Intelligence)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stamina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stamina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Charism)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Charism)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Revenir a l'index", "Index")
+</p>

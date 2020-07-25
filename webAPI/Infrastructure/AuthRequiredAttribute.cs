@@ -14,37 +14,37 @@ namespace webAPI.Infrastructure
     public class AuthRequiredAttribute : AuthorizationFilterAttribute
     {
         public override void OnAuthorization(HttpActionContext actionContext)
-    {
-        actionContext.Request.Headers.TryGetValues("Authorization", out IEnumerable<string> authorisations);
-
-
-
-        string token = authorisations.SingleOrDefault(t => t.StartsWith("Bearer "));
-
-
-
-        if (token is null)
         {
-            actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
-        }
-        else
-        {
-            UserGlobal user = TokenService.Instance.DecodeToken(token);
+            actionContext.Request.Headers.TryGetValues("Authorization", out IEnumerable<string> authorisations); // recupere les valeurs d'Authorization -> bearer blablabla
 
 
 
-            if (user is null)
+            string token = authorisations.SingleOrDefault(t => t.StartsWith("Bearer ")); // n'en retourner qu'un seul qui commence par Bearer .
+
+
+
+            if (token is null) // si pas de valeur trouvée
             {
-                actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized); //défini la réponse si le token est null
             }
             else
             {
-                actionContext.RequestContext.RouteData.Values.Add("userId", user.Id);
+                UserGlobal user = TokenService.Instance.DecodeToken(token); // ????
+
+
+
+                if (user is null) // plus valide dans le temps par exemple
+                {
+                    actionContext.Response = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+                }
+                else
+                {
+                    // ?????????????
+                }
             }
+
+
+
         }
-
-
-
     }
-}
 }

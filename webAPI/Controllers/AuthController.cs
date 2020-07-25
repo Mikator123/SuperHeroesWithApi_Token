@@ -22,10 +22,10 @@ namespace webAPI.Controllers
         [Route("api/Auth/Login")]
         public UserGlobal Login([FromBody] LoginForm form)
         {
-            UserGlobal user = _repo.Login(form.Login, form.Password);
+            UserGlobal user = _repo.Login(form.Login, form.Password); // récupération de l'utilisateur
             if (user != null)
             {
-                user.Token = TokenService.Instance.EncodeToken(user);
+                user.Token = TokenService.Instance.EncodeToken(user); //ajout du token dans l'utilisateur
             }
             return user;
         }
