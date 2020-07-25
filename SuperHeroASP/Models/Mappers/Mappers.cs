@@ -35,6 +35,19 @@ namespace SuperHeroASP.Models.Mappers
         {
             return new SuperHeroClient()
             {
+                Id = entity.Id,
+                Name = entity.Name,
+                Charism = entity.Charism,
+                Intelligence = entity.Intelligence,
+                Strenght = entity.Strenght,
+                Stamina = entity.Stamina,
+            };
+        }
+        public static UpdateForm ToUpdateForm(this SuperHeroClient entity)
+        {
+            return new UpdateForm()
+            {
+                Id = entity.Id,
                 Name = entity.Name,
                 Charism = entity.Charism,
                 Intelligence = entity.Intelligence,

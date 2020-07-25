@@ -71,7 +71,7 @@ namespace SuperHeroASP.Controllers
         // GET: SuperHeroes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(_service.GetById(id));
+            return View(_service.GetById(id).ToUpdateForm());
         }
 
         // POST: SuperHeroes/Edit/5

@@ -9,6 +9,7 @@ namespace SuperHeroASP.Models.SuperHeroForms
 {
     public class UpdateForm
     {
+        public int Id { get; set; }
         [Required]
         [StringLength(50, ErrorMessage = "Il faut: minimum 2 charactères et maximum 50 charactères", MinimumLength = 2)]
         [DisplayName("Nom du Super Hero")]
